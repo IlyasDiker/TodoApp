@@ -3,7 +3,8 @@
 {% block title %}Update task{% endblock %}
 
 {% block content %}
-    <h1>Update Task</h1>
+<br>
+    <h1><a href="{% url 'list' %}"><i class="fas fa-chevron-left"></i></a>  Update Task</h1>
     <form method="POST" action="">
         {% csrf_token %}
         {{form}}

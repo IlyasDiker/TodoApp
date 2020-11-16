@@ -6,8 +6,8 @@
 <br>
     <form method="POST" action="">
         {% csrf_token %}
-        <p>Are you sure you want to delete <b>"{{item}}"</b> ?</p>
-        <a class="button button-outline" href="{% url 'list' %}">No, go back</a>
+        <p><i class="fas fa-trash-alt"></i> Are you sure you want to delete <b>"{{item}}"</b> ?</p>
+        <a class="button button-outline" href="{% url 'list' %}"> No, go back</a>
         <input type="submit" value="Yes">
     </form>
 {% endblock %}

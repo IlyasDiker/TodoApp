@@ -3,7 +3,8 @@
 {% block title %}TodoApp{% endblock %}
 
 {% block content %}
-    <br>
+    <br><br>
+    <h1>Todo App</h1>
     <form method="POST" action="/" class="row">
         {% csrf_token %}
         {{form.title}}

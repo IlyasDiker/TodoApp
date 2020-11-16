@@ -12,8 +12,13 @@
     </form>
 {% for task in tasks %}
     <div>
-        <p>{{task}}</p>
+        {% if task.complete == True %}
+        <strike>{{task}}</strike>
+        {% else %}
+        <span>{{task}}</span>
+        {% endif %}
         <a href="{% url 'update_task' task.id %}">Update</a>
+        <a href="{% url 'delete_task' task.id %}">Delete</a>
     </div>
 {% endfor %}
 </body>

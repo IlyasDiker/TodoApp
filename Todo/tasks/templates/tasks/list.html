@@ -1,25 +1,38 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Todo</title>
-</head>
-<body>
-    <form method="POST" action="/">
+{% extends 'base.html' %}
+
+{% block title %}TodoApp{% endblock %}
+
+{% block content %}
+    <br>
+    <form method="POST" action="/" class="row">
         {% csrf_token %}
         {{form.title}}
-        <input type="submit" name="Create Task">
+        <input class='outline' type="submit" value="Create New Task">
     </form>
-{% for task in tasks %}
-    <div>
-        {% if task.complete == True %}
-        <strike>{{task}}</strike>
-        {% else %}
-        <span>{{task}}</span>
-        {% endif %}
-        <a href="{% url 'update_task' task.id %}">Update</a>
-        <a href="{% url 'delete_task' task.id %}">Delete</a>
-    </div>
-{% endfor %}
-</body>
-</html>
+    <table>
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for task in tasks %}
+        <tr>
+            <td>
+                {% if task.complete == True %}
+                <strike>{{task}}</strike>
+                {% else %}
+                {{task}}
+                {% endif %}
+            </td>
+            <td>
+                <a class="button button-outline" href="{% url 'update_task' task.id %}">Update</a>
+                <a class="button button-outline" href="{% url 'delete_task' task.id %}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

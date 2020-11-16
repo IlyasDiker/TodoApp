@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Task</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Update task{% endblock %}
+
+{% block content %}
     <h1>Update Task</h1>
     <form method="POST" action="">
         {% csrf_token %}
         {{form}}
-        <input type="submit" name="Update">
+        <br><input type="submit" name="Update">
     </form>
-</body>
-</html>
+{% endblock %}
